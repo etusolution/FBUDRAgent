@@ -103,7 +103,7 @@ class UDRFeeder(object):
         assert(len(authKey)>0)
         assert(len(group_cid)>0)
         
-        timestamp = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()-1))
+        timestamp = time.strftime('%Y%m%d%H%M%S', time.gmtime(time.time()-1))
     
         # HMAC SHA1 hash with g_authKey, group_cid, timestamp
         hashed = hmac.new(base64.b64decode(authKey), digestmod=sha1)
